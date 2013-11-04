@@ -1,6 +1,5 @@
 package com.alarm.fuse01126;
 
-import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -17,8 +16,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class MainActivity extends FragmentActivity {
-	final String[] menuEntries = { "AlarmPoolFragment","Friends" };
-	final String[] fragments = { "com.alarm.fuse01126.AlarmPoolFragment","com.alarm.fuse01126.Friends" };
+	final String[] menuEntries = { "Credit","AlarmPoolFragment","Friends" };
+	final String[] fragments = { "com.alarm.fuse01126.InfoFragment","com.alarm.fuse01126.AlarmPoolFragment","com.alarm.fuse01126.Friends" };
 	private ActionBarDrawerToggle drawerToggle;
 
 	@Override
@@ -47,7 +46,6 @@ public class MainActivity extends FragmentActivity {
 			}
 		};
 		drawer.setDrawerListener(drawerToggle);
-
 		navList.setAdapter(adapter);
 		navList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -68,7 +66,7 @@ public class MainActivity extends FragmentActivity {
 			}
 		});
 		FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-		 tx.replace(R.id.content_frame,Fragment.instantiate(MainActivity.this, fragments[0]));
+		 tx.replace(R.id.content_frame,Fragment.instantiate(MainActivity.this, fragments[1]));
 		tx.commit();
 	}
 
